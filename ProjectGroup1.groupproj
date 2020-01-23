@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FCF5F980-D292-4373-A929-B417F24E8708}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="schoolReportCard.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="schoolReportCard">
+        <MSBuild Projects="schoolReportCard.cbproj"/>
+    </Target>
+    <Target Name="schoolReportCard:Clean">
+        <MSBuild Projects="schoolReportCard.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="schoolReportCard:Make">
+        <MSBuild Projects="schoolReportCard.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="schoolReportCard"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="schoolReportCard:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="schoolReportCard:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
